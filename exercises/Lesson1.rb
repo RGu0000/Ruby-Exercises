@@ -36,7 +36,3 @@ class Lesson1
     result
   end
 end
-#
-# s = Lesson1.new
-# puts s.solution(1041) == 5
-# puts s.solution(15) == 0
