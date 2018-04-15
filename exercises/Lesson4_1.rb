@@ -48,7 +48,13 @@
 # expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
 
 def solution(a)
-  ((1..a.size).to_a - a)
+  result = (1..a.size).to_a - a
+  if result.empty?
+    return 1
+  else
+    return 0
+  end
+
 end
 
 solution([-3,-333,1,2])
