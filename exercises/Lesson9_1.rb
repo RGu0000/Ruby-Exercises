@@ -34,26 +34,11 @@
 # expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
 
 def solution(a)
-  result = 0
-
-  opens_at = Array.new(a.size) { 0 }
-  closes_at = Array.new(a.size) { 0 }
-  a.size.times do |i|
-    opens_at[ [0, i - a[i]].max ] += 1
-    closes_at[ i + a[i] ] += 1 if i + a[i] < a.size
+  max_profit=0
+  buy_price = a[0]
+  a.each do |element|
+    max_profit = [max_profit, element - buy_price].max
+    buy_price = [buy_price, element].min
   end
-
-  opened_not_closed = 0
-  a.size.times do |i|
-    if opens_at[i] > 0
-      result += opened_not_closed * opens_at[i]
-      result += opens_at[i] * (opens_at[i] - 1) / 2
-      opened_not_closed += opens_at[i]
-    end
-    opened_not_closed -= closes_at[i]
-  end
-
-  return -1 if result > 10_000_000
-  result
-
+  max_profit
 end
