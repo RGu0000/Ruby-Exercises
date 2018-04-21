@@ -1,37 +1,39 @@
-# We draw N discs on a plane. The discs are numbered from 0 to N − 1. An array A of N non-negative integers, specifying the radiuses of the discs, is given. The J-th disc is drawn with its center at (J, 0) and radius A[J].
+# An array A consisting of N integers is given. It contains daily prices of a stock share for a period of N consecutive days. If a single share was bought on day P and sold on day Q, where 0 ≤ P ≤ Q < N, then the profit of such transaction is equal to A[Q] − A[P], provided that A[Q] ≥ A[P]. Otherwise, the transaction brings loss of A[P] − A[Q].
 #
-# We say that the J-th disc and K-th disc intersect if J ≠ K and the J-th and K-th discs have at least one common point (assuming that the discs contain their borders).
+# For example, consider the following array A consisting of six elements such that:
 #
-# The figure below shows discs drawn for N = 6 and A as follows:
+#   A[0] = 23171
+#   A[1] = 21011
+#   A[2] = 21123
+#   A[3] = 21366
+#   A[4] = 21013
+#   A[5] = 21367
+# If a share was bought on day 0 and sold on day 2, a loss of 2048 would occur because A[2] − A[0] = 21123 − 23171 = −2048. If a share was bought on day 4 and sold on day 5, a profit of 354 would occur because A[5] − A[4] = 21367 − 21013 = 354. Maximum possible profit was 356. It would occur if a share was bought on day 1 and sold on day 5.
 #
-#   A[0] = 1
-#   A[1] = 5
-#   A[2] = 2
-#   A[3] = 1
-#   A[4] = 4
-#   A[5] = 0
-#
-#
-# There are eleven (unordered) pairs of discs that intersect, namely:
-#
-# discs 1 and 4 intersect, and both intersect with all the other discs;
-# disc 2 also intersects with discs 0 and 3.
-# Write a function:
+# Write a function,
 #
 # def solution(a)
 #
-# that, given an array A describing N discs as explained above, returns the number of (unordered) pairs of intersecting discs. The function should return −1 if the number of intersecting pairs exceeds 10,000,000.
+# that, given an array A consisting of N integers containing daily prices of a stock share for a period of N consecutive days, returns the maximum possible profit from one transaction during this period. The function should return 0 if it was impossible to gain any profit.
 #
-# Given array A shown above, the function should return 11, as explained above.
+# For example, given array A consisting of six elements such that:
+#
+#   A[0] = 23171
+#   A[1] = 21011
+#   A[2] = 21123
+#   A[3] = 21366
+#   A[4] = 21013
+#   A[5] = 21367
+# the function should return 356, as explained above.
 #
 # Assume that:
 #
-# N is an integer within the range [0..100,000];
-# each element of array A is an integer within the range [0..2,147,483,647].
+# N is an integer within the range [0..400,000];
+# each element of array A is an integer within the range [0..200,000].
 # Complexity:
 #
-# expected worst-case time complexity is O(N*log(N));
-# expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+# expected worst-case time complexity is O(N);
+# expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).
 
 def solution(a)
   max_profit=0
