@@ -29,7 +29,7 @@
 def solution(a)
   stones = 0
   stack = []
-  h.each do |height|
+  a.each do |height|
     stack.pop while stack.any? && stack.last > height
     next if stack.any? && stack.last == height
     stack << height
